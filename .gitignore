@@ -1,0 +1,10 @@
+.env
+config.yaml
+usage.db
+*.db
+*.sqlite
+*.sqlite3
+logs/
+*.log
+.DS_Store
+Thumbs.db

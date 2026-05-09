@@ -1,0 +1,35 @@
+# Copy this file to config.yaml and replace the placeholder keys.
+# Do not commit config.yaml after filling in real secrets.
+
+listen: "0.0.0.0:8080"
+serve_config_generator: false
+
+models:
+  # Client-facing alias for Codex. The upstream model is still qwen3.6-plus.
+  - name: gpt-5.2
+    backend: https://coding.dashscope.aliyuncs.com/v1
+    api_key: YOUR_ALIBABA_CODING_PLAN_API_KEY
+    model: qwen3.6-plus
+    responses_mode: translate
+    context_window: 1000000
+    timeout: 600
+    defaults:
+      reasoning_effort: medium
+      max_new_tokens: 8192
+
+  # Optional direct name for manual testing.
+  - name: qwen3.6-plus
+    backend: https://coding.dashscope.aliyuncs.com/v1
+    api_key: YOUR_ALIBABA_CODING_PLAN_API_KEY
+    model: qwen3.6-plus
+    responses_mode: translate
+    context_window: 1000000
+    timeout: 600
+    defaults:
+      reasoning_effort: medium
+      max_new_tokens: 8192
+
+keys:
+  - key: YOUR_PROXY_API_KEY
+    name: codex-user
+    models: [gpt-5.2, qwen3.6-plus]
