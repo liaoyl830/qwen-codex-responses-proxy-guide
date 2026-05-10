@@ -30,9 +30,13 @@ keys:
 
 可能是上游限流、代理 Key 重试过多、或客户端并发过高。先降低并发并确认上游账户额度。
 
-### Codex 模型列表里没有 qwen3.6-plus
+### Codex 模型列表里没有真实模型名
 
-可以用别名。把 Codex 的 `model` 设置为代理暴露的名字，例如 `gpt-5.2`。代理再把它转发成真实模型 `qwen3.6-plus`。
+可以用别名。把 Codex 的 `model` 设置为代理暴露的名字，例如 `gpt-5.2`。代理再把它转发成真实模型，例如 `qwen3.6-plus`、`deepseek-chat`、`MiniMax-M2.7` 或 `glm-4.7`。
+
+### 某个厂商能 curl 成功，但 Codex 不稳定
+
+不同厂商对流式输出、工具调用、reasoning 字段、上下文长度和超时的支持不完全一致。先用短输入测试，再逐步测试代码修改、长上下文、工具调用和多轮对话。
 
 ### /v1/models 正常，但 Codex 不能用
 
@@ -73,9 +77,13 @@ Common causes:
 
 This may be upstream rate limiting, repeated authentication retries, or excessive client concurrency. Lower concurrency first and check upstream quota.
 
-### Codex model picker does not show qwen3.6-plus
+### Codex model picker does not show the real upstream model name
 
-Use an alias. Set Codex `model` to a proxy-exposed name such as `gpt-5.2`. The proxy rewrites it to the real upstream model `qwen3.6-plus`.
+Use an alias. Set Codex `model` to a proxy-exposed name such as `gpt-5.2`. The proxy rewrites it to a real upstream model such as `qwen3.6-plus`, `deepseek-chat`, `MiniMax-M2.7`, or `glm-4.7`.
+
+### A provider works with curl but is unstable in Codex
+
+Provider compatibility differs for streaming, tool calls, reasoning fields, context windows, and timeouts. Start with short prompts, then test code edits, long context, tool use, and multi-turn conversations.
 
 ### /v1/models works, but Codex fails
 

@@ -1,14 +1,14 @@
-# Copy this file to config.yaml and replace the placeholder keys.
-# Do not commit config.yaml after filling in real secrets.
+# Copy this file to config.yaml, keep the providers you need, and replace
+# the placeholder keys. Do not commit config.yaml after filling real secrets.
 
 listen: "0.0.0.0:8080"
 serve_config_generator: false
 
 models:
-  # Client-facing alias for Codex. The upstream model is still qwen3.6-plus.
+  # Client-facing alias for Codex. Change this block to choose your default model.
   - name: gpt-5.2
     backend: https://coding.dashscope.aliyuncs.com/v1
-    api_key: YOUR_ALIBABA_CODING_PLAN_API_KEY
+    api_key: YOUR_QWEN_API_KEY
     model: qwen3.6-plus
     responses_mode: translate
     context_window: 1000000
@@ -17,19 +17,134 @@ models:
       reasoning_effort: medium
       max_new_tokens: 8192
 
-  # Optional direct name for manual testing.
+  # Qwen / Alibaba Model Studio Coding Plan.
   - name: qwen3.6-plus
     backend: https://coding.dashscope.aliyuncs.com/v1
-    api_key: YOUR_ALIBABA_CODING_PLAN_API_KEY
+    api_key: YOUR_QWEN_API_KEY
     model: qwen3.6-plus
     responses_mode: translate
     context_window: 1000000
     timeout: 600
     defaults:
       reasoning_effort: medium
+      max_new_tokens: 8192
+
+  # Qwen / Alibaba Model Studio standard OpenAI-compatible endpoint.
+  - name: qwen-plus
+    backend: https://dashscope.aliyuncs.com/compatible-mode/v1
+    api_key: YOUR_QWEN_API_KEY
+    model: qwen-plus
+    responses_mode: translate
+    context_window: 131072
+    timeout: 600
+    defaults:
+      reasoning_effort: medium
+      max_new_tokens: 8192
+
+  # DeepSeek OpenAI-compatible endpoint.
+  - name: deepseek-chat
+    backend: https://api.deepseek.com/v1
+    api_key: YOUR_DEEPSEEK_API_KEY
+    model: deepseek-chat
+    responses_mode: translate
+    context_window: 65536
+    timeout: 600
+    defaults:
+      reasoning_effort: medium
+      max_new_tokens: 8192
+
+  - name: deepseek-reasoner
+    backend: https://api.deepseek.com/v1
+    api_key: YOUR_DEEPSEEK_API_KEY
+    model: deepseek-reasoner
+    responses_mode: translate
+    context_window: 65536
+    timeout: 600
+    defaults:
+      reasoning_effort: high
+      max_new_tokens: 8192
+
+  # MiniMax OpenAI-compatible endpoint.
+  - name: MiniMax-M2.7
+    backend: https://api.minimax.io/v1
+    api_key: YOUR_MINIMAX_API_KEY
+    model: MiniMax-M2.7
+    responses_mode: translate
+    context_window: 204800
+    timeout: 600
+    defaults:
+      reasoning_effort: high
+      max_new_tokens: 2048
+
+  - name: MiniMax-M2.5
+    backend: https://api.minimax.io/v1
+    api_key: YOUR_MINIMAX_API_KEY
+    model: MiniMax-M2.5
+    responses_mode: translate
+    context_window: 204800
+    timeout: 600
+    defaults:
+      reasoning_effort: high
+      max_new_tokens: 2048
+
+  # GLM / Zhipu OpenAI-compatible endpoint.
+  - name: glm-4.7
+    backend: https://open.bigmodel.cn/api/paas/v4
+    api_key: YOUR_GLM_API_KEY
+    model: glm-4.7
+    responses_mode: translate
+    context_window: 131072
+    timeout: 600
+    defaults:
+      reasoning_effort: high
+      max_new_tokens: 8192
+
+  - name: glm-4.6
+    backend: https://open.bigmodel.cn/api/paas/v4
+    api_key: YOUR_GLM_API_KEY
+    model: glm-4.6
+    responses_mode: translate
+    context_window: 131072
+    timeout: 600
+    defaults:
+      reasoning_effort: high
+      max_new_tokens: 8192
+
+  # MiMo OpenAI-compatible endpoint. Confirm the base URL from your MiMo provider.
+  - name: mimo-v2-pro
+    backend: https://api.mimo-v2.com/v1
+    api_key: YOUR_MIMO_API_KEY
+    model: mimo-v2-pro
+    responses_mode: translate
+    context_window: 1000000
+    timeout: 600
+    defaults:
+      reasoning_effort: high
+      max_new_tokens: 8192
+
+  - name: mimo-v2.5-pro
+    backend: https://api.mimo-v2.com/v1
+    api_key: YOUR_MIMO_API_KEY
+    model: mimo-v2.5-pro
+    responses_mode: translate
+    context_window: 1000000
+    timeout: 600
+    defaults:
+      reasoning_effort: high
       max_new_tokens: 8192
 
 keys:
   - key: YOUR_PROXY_API_KEY
     name: codex-user
-    models: [gpt-5.2, qwen3.6-plus]
+    models:
+      - gpt-5.2
+      - qwen3.6-plus
+      - qwen-plus
+      - deepseek-chat
+      - deepseek-reasoner
+      - MiniMax-M2.7
+      - MiniMax-M2.5
+      - glm-4.7
+      - glm-4.6
+      - mimo-v2-pro
+      - mimo-v2.5-pro
