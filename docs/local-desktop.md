@@ -76,7 +76,6 @@ curl.exe http://127.0.0.1:3002/v1/models -H "Authorization: Bearer YOUR_PROXY_AP
 ```toml
 model_provider = "china_llm_proxy"
 model = "gpt-5.2"
-model_reasoning_effort = "high"
 web_search = "disabled"
 
 [model_providers.china_llm_proxy]
@@ -172,7 +171,6 @@ curl http://127.0.0.1:3002/v1/models \
 ```toml
 model_provider = "china_llm_proxy"
 model = "gpt-5.2"
-model_reasoning_effort = "high"
 web_search = "disabled"
 
 [model_providers.china_llm_proxy]
@@ -309,7 +307,6 @@ curl.exe http://127.0.0.1:3002/v1/models -H "Authorization: Bearer YOUR_PROXY_AP
 ```toml
 model_provider = "china_llm_proxy"
 model = "gpt-5.2"
-model_reasoning_effort = "high"
 web_search = "disabled"
 
 [model_providers.china_llm_proxy]
@@ -405,7 +402,6 @@ curl http://127.0.0.1:3002/v1/models \
 ```toml
 model_provider = "china_llm_proxy"
 model = "gpt-5.2"
-model_reasoning_effort = "high"
 web_search = "disabled"
 
 [model_providers.china_llm_proxy]

@@ -185,7 +185,6 @@ curl BASE_URL/responses \
 ```toml
 model_provider = "china_llm_proxy"
 model = "gpt-5.2"
-model_reasoning_effort = "high"
 web_search = "disabled"
 
 [model_providers.china_llm_proxy]
@@ -229,6 +228,7 @@ $env:CHINA_LLM_PROXY_API_KEY="YOUR_PROXY_API_KEY"
 
 - [Codex 配置](docs/codex-config.md)
 - [Provider Catalog](docs/providers.md)
+- [参数兼容性](docs/parameter-compatibility.md)
 - [Windows / macOS 本机部署](docs/local-desktop.md)
 - [官方文档来源](docs/sources.md)
 - [安全建议](docs/security.md)
@@ -417,7 +417,6 @@ Local desktop: http://127.0.0.1:3002/v1
 ```toml
 model_provider = "china_llm_proxy"
 model = "gpt-5.2"
-model_reasoning_effort = "high"
 web_search = "disabled"
 
 [model_providers.china_llm_proxy]
@@ -461,6 +460,7 @@ More docs:
 
 - [Codex configuration](docs/codex-config.md)
 - [Provider Catalog](docs/providers.md)
+- [Parameter compatibility](docs/parameter-compatibility.md)
 - [Windows / macOS local deployment](docs/local-desktop.md)
 - [Source documentation](docs/sources.md)
 - [Security](docs/security.md)
